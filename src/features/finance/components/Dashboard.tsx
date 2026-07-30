@@ -6,6 +6,7 @@ import { SummaryCards } from "@/features/finance/components/SummaryCards";
 import { BudgetGoals } from "@/features/finance/components/BudgetGoals";
 import { OutflowTable } from "@/features/finance/components/OutflowTable";
 import { PaymentForecast } from "@/features/finance/components/PaymentForecast";
+import { AppNav } from "@/features/finance/components/AppNav";
 import { formatCurrency } from "@/lib/format";
 
 interface DashboardProps {
@@ -23,12 +24,15 @@ export function Dashboard({ budget }: DashboardProps) {
 
   return (
     <main className="mx-auto max-w-6xl space-y-6 px-4 py-8">
-      <header className="flex flex-col gap-1">
-        <div className="flex items-center justify-between">
+      <header className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <h1 className="text-2xl font-bold tracking-tight">Fingenius</h1>
-          <span className="rounded-md bg-secondary px-3 py-1 text-sm font-medium text-secondary-foreground">
-            {budget.reference}
-          </span>
+          <div className="flex items-center gap-3">
+            <span className="rounded-md bg-secondary px-3 py-1 text-sm font-medium text-secondary-foreground">
+              {budget.reference}
+            </span>
+            <AppNav />
+          </div>
         </div>
         <p className="text-sm text-muted-foreground">
           Entradas {formatCurrency(summary.grossIncome)} · Dízimo{" "}

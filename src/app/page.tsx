@@ -1,6 +1,5 @@
-import { Dashboard } from "@/features/finance/components/Dashboard";
-import { sampleBudget } from "@/features/finance/data/sample-budget";
+import { DashboardScreen } from "@/features/finance/components/DashboardScreen";
 
 export default function Home() {
-  return <Dashboard budget={sampleBudget} />;
+  return <DashboardScreen />;
 }
