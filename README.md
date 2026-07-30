@@ -74,3 +74,18 @@ npm run start     # serve o build de produção
 npm run lint      # ESLint (next lint)
 npm run typecheck # checagem de tipos (tsc --noEmit)
 ```
+
+## Deploy no GitHub Pages
+
+O projeto está configurado para **exportação estática** (`output: "export"`)
+e é publicado automaticamente via GitHub Actions.
+
+1. No repositório, vá em **Settings → Pages** e defina **Source: GitHub Actions**.
+2. Faça push para a branch `main` (ou rode o workflow manualmente em
+   **Actions → Deploy to GitHub Pages → Run workflow**).
+3. O site fica disponível em `https://<usuário>.github.io/Fingenius/`.
+
+O workflow (`.github/workflows/deploy.yml`) injeta o `basePath` correto
+(o nome do repositório) através da variável `NEXT_PUBLIC_BASE_PATH`, de forma
+que os assets resolvam corretamente na URL do projeto. Localmente, sem essa
+variável, o app roda a partir da raiz (`/`).
